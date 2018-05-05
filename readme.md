@@ -1,6 +1,6 @@
 #Install Dependencies & Basic Server Setup
 - Go to devconnector folder via the terminal 
-```
+```javascript
 npm init
 npm i express mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator
 npm i -D nodemon
@@ -16,7 +16,7 @@ npm i -D nodemon
 
 - Add server.js file as entry point and set it up
 - Edit package.json to add: 
-```
+```javascript
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
@@ -24,6 +24,14 @@ npm i -D nodemon
 ```
 - To enable automatic update
 - npm run server 
+
+- Initialise git and add .gitignore file 
+- If git already starting tracking gitignore files, do this: 
+```javascript
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
+```
 
 ____________________________________________
 
@@ -45,6 +53,7 @@ ____________________________________________
 ____________________________________________
 
 #Route Files with Express Router
+
 
 
 
