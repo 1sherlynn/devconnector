@@ -1,0 +1,13 @@
+const express = require('express'); 
+const router = express.Router(); 
+
+// @route 	GET api/users/test
+// @des		Tests users route
+// @access 	Public
+
+router.get('/test', (req, res) => res.json({msg: "Users Works"}));
+
+module.exports = router;
+
+// Go to http://localhost:5000/api/users/test
+// to see output
