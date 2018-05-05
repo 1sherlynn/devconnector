@@ -1,4 +1,4 @@
-#Install Dependencies & Basic Server Setup
+# Install Dependencies & Basic Server Setup
 - Go to devconnector folder via the terminal 
 ```javascript
 npm init
@@ -35,14 +35,14 @@ git commit -m "fixed untracked files"
 
 ____________________________________________
 
-#Connecting to MongoDB with Mongoose 
+# Connecting to MongoDB with Mongoose 
 - Create config folder and keys.js file to add MongoURI keys and value
 - Configure MongoDB using mongoose in server.js file
 - Upon saving, should see in terminal: 'MongoDB connected'
 
 ____________________________________________
 
-#Route Files with Express Router
+# Route Files with Express Router
 - So that we can have separate files for each of our resources 
 - Resources: users, profiles and posts 
 - create routes folder, api sub folder and configure routes 
@@ -52,7 +52,7 @@ ____________________________________________
 - You then send that token to your request
 ____________________________________________
 
-#Route Files with Express Router
+# Route Files with Express Router
 
 
 
