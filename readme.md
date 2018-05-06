@@ -5,13 +5,13 @@ npm init
 npm i express mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator
 npm i -D nodemon
 ```
-- Mongoose: used to connect and interact with mongoDB
-- Passport: authentication
-- Passport-jwt (JSON web token)
+- **Mongoose**: used to connect and interact with mongoDB
+- **Passport**: authentication
+- **Passport-jwt** (JSON web token)
 - jsonwebtoken: to generate the token
-- body-parser: to take in data to do what we want with it 
-- bcryptjs 
-- nodemon: dev dependency. Will constantly watch our application and when we make changes it will update automatically instead of us having to manually restart everytime
+- **body-parser**: to take in data to do what we want with it 
+- **bcryptjs**: to encrypt password
+- **nodemon**: dev dependency. Will constantly watch our application and when we make changes it will update automatically instead of us having to manually restart everytime
 
 
 - Add server.js file as entry point and set it up
@@ -36,18 +36,19 @@ git commit -m "fixed untracked files"
 ____________________________________________
 
 # Connecting to MongoDB with Mongoose 
-- Create config folder and keys.js file to add MongoURI keys and value
+- Create config folder and keys.js file to add **MongoURI keys and value**
 - Configure MongoDB using mongoose in server.js file
 - Upon saving, should see in terminal: 'MongoDB connected'
 
 ____________________________________________
 
 # Route Files with Express Router
+
 - So that we can have separate files for each of our resources 
 - Resources: users, profiles and posts 
 - create routes folder, api sub folder and configure routes 
 - Configure server.js file
-- In order to access a private route (with authentication details), you have to send a JSON web token along with it 
+- In order to access a private route (with authentication details), you have to send a **JSON web token** along with it 
 - The way to get a token is by registering and then logging in (token is sent to you)
 - You then send that token to your request
 ____________________________________________
@@ -69,10 +70,10 @@ ____________________________________________
 - HTTP status 404: Not Found
 - HTTP status 500 plus: server error
 
-- Use Mongoose to first find if the email exists
+- Use **Mongoose** to first find if the email exists
 - When sending data through our route, it will be through a form 
 - We access the data though req.body and then the form input name e.g. req.body.email
-- Configure body-parser in server.js
+- Configure **body-parser** in server.js
 ```javascript
 const bodyParser = require('body-parser')
 // Body parser middleware 
@@ -81,11 +82,14 @@ app.use(bodyParser.json());
 ```
 
 - Now, we can access req.body 
-- For Gravatar, we need to npm install gravatar 
+- For Gravatar, we need to **npm install gravatar**
 - And pass in the email from the form through gravatar.url(email);
+- Need to encrypt the password via bcrypt otherwise it will be plain text
 
 
+____________________________________________
 
+# Email & Password Login
 
 
 
