@@ -52,7 +52,49 @@ ____________________________________________
 - You then send that token to your request
 ____________________________________________
 
-# Route Files with Express Router
+# Creating The User Model
+
+- Each resource we have needs to have a mongoose model with a schema
+- create a new folder in the root called models
+- In it, create User.js
+- The convention for models is to be singular and to be capital
+
+____________________________________________
+
+# User Registration & Postman
+
+- Use Postman HTTP Client (to test without a front-end application)
+- HTTP status 200: OK and successful response
+- HTTP status 400: validation error
+- HTTP status 404: Not Found
+- HTTP status 500 plus: server error
+
+- Use Mongoose to first find if the email exists
+- When sending data through our route, it will be through a form 
+- We access the data though req.body and then the form input name e.g. req.body.email
+- Configure body-parser in server.js
+```javascript
+const bodyParser = require('body-parser')
+// Body parser middleware 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+```
+
+- Now, we can access req.body 
+- For Gravatar, we need to npm install gravatar 
+- And pass in the email from the form through gravatar.url(email);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
