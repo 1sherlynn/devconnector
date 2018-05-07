@@ -203,9 +203,11 @@ module.exports = function validateRegisterInput(data) {
 
 ____________________________________________
 
-# Aside - Front End Visual
+# Current User Profile Route
  
-- 
+- Create models/profile.js
+```javascript 
+```
 
 
 
