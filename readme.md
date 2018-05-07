@@ -203,11 +203,9 @@ module.exports = function validateRegisterInput(data) {
 
 ____________________________________________
 
-# Current User Profile Route
+# Create & Update Profile Routes
  
-- Create models/profile.js
-```javascript 
-```
+
 
 
 
