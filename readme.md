@@ -91,17 +91,121 @@ ____________________________________________
 
 # Email & Password Login
 
+- When a user logs in, email and password will be entered
+- Once successfully verified, they will get back a **token** using the **jsonwebtoken module** 
+- The **token** is then sent along to access a protected route
+- The way that it is validated when a token is sent by the user is by **passport** and **passport jwt** 
+- **jsonwebtoken** creates the token
+- **passport** will validate the token and extract the user's information from it 
+- At this point, the logic for login is createed but **no token (JSON Web Token) is returned yet** (next video)
 
+____________________________________________
 
+# Creating the JSON Web Token (JWT)
 
+- After validating credentials, to create the JST to be sent to access-protected routes 
+- After getting the token, we would put it in the header as an authorization, and that will send it to the server, the server will validate the user, and get the user information 
 
+```javascript
 
+const jwt = require('jsonwebtoken'); 
+const keys = require('../../config/keys');
 
+// User Matched 
+ const payload = { id: user.id,  user.name, avatar: user.avatar Create JWT payload
 
+// Sign Token 
+jwt.sign(
+	payload, 
+	keys.secretOrKey, 
+	{ expiresIn: 3600 }, 
+	(err, token) => {
+		res.json({
+			success: true,
+			token: 'Bearer ' + token
+		});
+```
 
+____________________________________________
 
+# Passport JWT Authentication Strategy
 
+- Now, we need to **verify** the token with **passport** 
+- Passport has alot of authentication options (sub modules)
+- JWT is one of them (sub module)
+- Create config/passport.js: 
 
+```javascript
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const mongoose = require('mongoose');
+const User = mongoose.model('users');
+const keys = require('../config/keys');
+
+const opts = {};
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = keys.secretOrKey;
+
+module.exports = passport => {
+	passport.use(
+		new JwtStrategy(opts, (jwt_payload, done) => {
+		  User.findById(jwt_payload.id)
+			  .then(user => {
+				  if(user) {
+					  return done(null, user);
+				} 
+				  return done(null, false);
+			})
+			.catch(err => console.log(err));
+	})
+	);
+};
+```
+- In routes/api/users.js:
+```javascript
+// @route 	GET api/users/current
+// @des		  Return current user
+// @access 	Private
+router.get('/current', passport.authenticate('jwt', { session: false }), (req,res) => {
+	res.json({
+		id: req.user.id,
+		name: req.user.name,
+		email: req.user.email
+	});
+});
+```
+____________________________________________
+
+# Validation Handlers - 1
+
+- Create a new folder called Validation
+- **validator** module have helper methods to validate during things
+- However, it has to be a **string** is order to validate
+- Added is-empty validation (global check function): 
+
+```javascript
+const Validator = require('validator');
+const isEmpty = require('./is-empty');
+
+module.exports = function validateRegisterInput(data) {
+	let errors = {}; 
+
+	if(!Validator.isLength(data.name, { min: 2, max: 30 })){
+		errors.name = 'Name must be between 2 and 30 characters.';
+	}
+
+	return {
+		errors,
+		isValid: isEmpty(errors)
+	};
+};
+```
+
+____________________________________________
+
+# Aside - Front End Visual
+ 
+- 
 
 
 
