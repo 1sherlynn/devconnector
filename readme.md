@@ -212,7 +212,39 @@ ____________________________________________
 
 # Profile Field Validations
  
- - Create the post route in routes/api/profile.js 
+ - Create validations for routes/api/profile.js 
+ - Create new file: validation/profile.js
+ - Because we connected our user collection to the profile inside the model via: 
+ ```javascript
+ const ProfileSchema = new Schema({
+	user: {
+		type: Schema.Types.ObjectId,  // associate user by Id
+		ref: 'users'
+	} ...
+ ```
+- We are able to populate fields from Users into the response of Profile: 
+```javascript
+Profile.findOne({ user: req.user.id })
+		.populate('user', ['name', 'avatar']) 
+```
+
+____________________________________________
+
+# More Profile API Routes
+
+- Create more GET routes to get profiles by social handle and Id
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
