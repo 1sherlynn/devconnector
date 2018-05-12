@@ -1,4 +1,5 @@
 # Install Dependencies & Basic Server Setup
+- - npm run server 
 - Go to devconnector folder via the terminal 
 ```javascript
 npm init
@@ -205,8 +206,13 @@ ____________________________________________
 
 # Create & Update Profile Routes
  
+ - Create the post route in routes/api/profile.js 
 
+____________________________________________
 
+# Profile Field Validations
+ 
+ - Create the post route in routes/api/profile.js 
 
 
 
