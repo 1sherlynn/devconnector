@@ -232,8 +232,15 @@ ____________________________________________
 
 # More Profile API Routes
 
-- Create more GET routes to get profiles by social handle and Id
+- Create more GET routes to get profiles by social handle and Id in routes/api/profile.js
 
+
+____________________________________________
+
+# Add Experience & Education Routes
+
+- To be able to add, edit and delete Experience and Education fields
+- Add code to routes/api/profile.js
 
 
 
