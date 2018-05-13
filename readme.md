@@ -239,10 +239,17 @@ ____________________________________________
 
 # Add Experience & Education Routes
 
-- To be able to add, edit and delete Experience and Education fields
+- To be able to add and edit Experience and Education fields
 - Add code to routes/api/profile.js
 
 
+____________________________________________
+
+# Delete Experience & Education Routes
+
+- To be able to delete Experience and Education fields
+- Add code to routes/api/profile.js
+- Add route to be able to delete the user and the profile 
 
 
 
