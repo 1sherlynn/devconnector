@@ -1,5 +1,6 @@
 # Install Dependencies & Basic Server Setup
-- - npm run server 
+- npm run server 
+- local host 5000
 - Go to devconnector folder via the terminal 
 ```javascript
 npm init
@@ -250,6 +251,21 @@ ____________________________________________
 - To be able to delete Experience and Education fields
 - Add code to routes/api/profile.js
 - Add route to be able to delete the user and the profile 
+
+____________________________________________
+
+# Creating the Post Model
+
+- Create a Post model 
+
+
+
+
+
+
+
+
+
 
 
 
